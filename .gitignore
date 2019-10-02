@@ -1,3 +1,6 @@
+# Built .jar packages
+*.jar
+
 # Compiled class file
 *.class
 
@@ -11,5 +14,3 @@ out/
 .idea/**/usage.statistics.xml
 .idea/**/dictionaries
 .idea/**/shelf
-
-
