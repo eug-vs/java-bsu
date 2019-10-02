@@ -12,6 +12,7 @@ A repository with the JAVA labs (BSU/FAMCS).
 - `.idea/` - **IntelliJ IDEA** project settings
 - `src/` - Project *source code*
 - `README.md` - Lab description with the *main task* and, optionally, comments on the solution.
+- `Makefile` - Makefile to support `make` commands and work outside of IDE.
 - `.gitignore`
 
 ## Getting started
@@ -23,8 +24,15 @@ A repository with the JAVA labs (BSU/FAMCS).
 3. Open **IntelliJ IDEA starting screen** and proceed with `Import Project`, answering **yes** on every following question.
 
 ### Running project
+## IntelliJ IDEA
 1. Go to `Run/Edit configurations/Templates/Application`
 2. Put **Main** in the *Main class* field
 3. *Apply* changes
 4. Build project (`Ctrl+F9`)
 5. Run project (`Shift+F10`)
+## Shell
+To build, pack and run your project from a *shell* simply run command: 
+```shell
+make run
+```
+Keep it mind that it requires **make** to be installed. More info on make: https://www.gnu.org/software/make/
