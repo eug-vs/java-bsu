@@ -7,7 +7,7 @@ A repository with the JAVA labs (BSU/FAMCS).
 
 ## Structure
 - Every lab is located on its own branch. 
-- Master branch only includes `README.md` and default `.gitignore` for **IntelliJ IDEA**.
+- Base branch only includes `README.md`, `Makefile` and default `.gitignore` for **IntelliJ IDEA**.
 ### Every lab branch includes:
 - `.idea/` - **IntelliJ IDEA** project settings
 - `src/` - Project *source code*
