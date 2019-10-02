@@ -21,16 +21,15 @@ A repository with the JAVA labs (BSU/FAMCS).
 2. Checkout desired branch
   * List all branches: `git branch -a`
   * Checkout: `git checkout BRANCHNAME`
-3. Open **IntelliJ IDEA starting screen** and proceed with `Import Project`, answering **yes** on every following question.
-
 ### Running project
-## IntelliJ IDEA
-1. Go to `Run/Edit configurations/Templates/Application`
-2. Put **Main** in the *Main class* field
-3. *Apply* changes
-4. Build project (`Ctrl+F9`)
-5. Run project (`Shift+F10`)
-## Shell
+#### IntelliJ IDEA
+1. Open **IntelliJ IDEA starting screen** and proceed with `Import Project`, answering **yes** on every following question.
+2. Go to `Run/Edit configurations/Templates/Application`
+3. Put **Main** in the *Main class* field
+4. *Apply* changes
+5. Build project (`Ctrl+F9`)
+6. Run project (`Shift+F10`)
+#### Shell
 To build, pack and run your project from a *shell* simply run command: 
 ```shell
 make run
