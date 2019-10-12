@@ -1,19 +1,24 @@
 package taylorseries;
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+
 
 public class TaylorSeries {
 
-    public static double Approximate(double x, double precision) {
-        double result = 0;
-        double term = 1;
-        int fact_counter = 2;
-        while(Math.abs(term) > precision) {
-            result += term;
-            term *= -1;
-            term *= x*x;
-            term /= fact_counter;
-            fact_counter++;
-            term /= fact_counter;
-            fact_counter++;
+    public static BigDecimal Approximate(BigDecimal x, int k) {
+        BigDecimal e = new BigDecimal(Math.pow(10, -k)).setScale(k+1, RoundingMode.FLOOR);
+        System.out.println("Approximating function sin(x)/x at x=" + x + " with precision " + e);
+        BigDecimal result = new BigDecimal(0);
+        BigDecimal term = new BigDecimal(1);
+        BigDecimal flipper = new BigDecimal(-1);
+        BigDecimal fact_counter = new BigDecimal(2);
+        while(term.abs().compareTo(e) > 0) {
+            result = result.add(term);
+            term = term.multiply(flipper).multiply(x).multiply(x);
+            term = term.divide(fact_counter, k+1, RoundingMode.CEILING);
+            fact_counter = fact_counter.subtract(flipper); // ++
+            term = term.divide(fact_counter, k+1, RoundingMode.CEILING);
+            fact_counter = fact_counter.subtract(flipper); // ++
         }
         return result;
     }
