@@ -5,10 +5,12 @@ import java.math.BigDecimal;
 public class Main {
     public static void main(String[] args) {
         double x = 3;
-        int k = 10;
+        int k = 20;
 
-        if (args.length == 2) {
+        if (args.length >= 1) {
             x = Double.parseDouble(args[0]);
+        }
+        if (args.length == 2) {
             k = Integer.parseInt(args[1]);
         }
 
