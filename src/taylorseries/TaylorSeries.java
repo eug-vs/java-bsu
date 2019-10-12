@@ -1,4 +1,4 @@
-package TaylorSeries;
+package taylorseries;
 
 public class TaylorSeries {
 

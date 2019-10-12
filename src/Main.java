@@ -1,5 +1,5 @@
 import java.lang.Math;
-import TaylorSeries.TaylorSeries;
+import taylorseries.TaylorSeries;
 
 
 public class Main {
