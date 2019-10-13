@@ -1,7 +1,9 @@
 package algebra;
 
+
 public class Matrix {
     private double[][] matrix;
+
     public Matrix(int m, int n) {
         matrix = new double[m][n];
         for (double[] row : matrix) {
@@ -10,14 +12,16 @@ public class Matrix {
             }
         }
     }
+
     public String toString() {
-        String str = "";
+        StringBuilder str = new StringBuilder();
         for (double[] row : matrix) {
             for (double item : row) {
-                str += Double.toString(item) + " ";
+                str.append(item);
+                str.append(" ");
             }
-            str += "\n";
+            str.append("\n");
         }
-        return str;
+        return str.toString();
     }
 }
