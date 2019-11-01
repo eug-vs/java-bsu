@@ -1,7 +1,8 @@
 package algebra;
 
 import java.util.Random;
-
+import java.util.Arrays;
+import java.util.Comparator;
 
 public class Matrix {
     private double[][] matrix;
@@ -38,4 +39,49 @@ public class Matrix {
         }
         return str.toString();
     }
+
+    public Matrix transposeMajor() {
+        Matrix transposed = new Matrix(this.m, this.n);
+        for (int i = 0; i < this.m; i++) {
+            for (int j = 0; j < n; j++) {
+                transposed.matrix[j][i] = this.matrix[i][j];
+            }
+        }
+        return transposed;
+    }
+
+    public Matrix transposeMinor() {
+        Matrix transposed = new Matrix(this.m, this.n);
+        for (int i = 0; i < this.m; i++) {
+            for (int j = 0; j < n; j++) {
+                transposed.matrix[this.n - 1 - j][this.n - 1 - i] = this.matrix[i][j];
+            }
+        }
+        return transposed;
+    }
+
+    public boolean isEqual(Matrix other){
+        if (this.m != other.m || this.n != other.n) {
+            return false;
+		}
+        for (int i = 0; i < this.m; i++) {
+            for (int j = 0; j < n; j++) {
+                if (this.matrix[i][j] != other.matrix[i][j]) {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+
+    public void task(){
+        double[] lastRow = this.matrix[this.m - 1];
+        Arrays.sort(lastRow, 0, n, new Comparator<double> {
+            @Override
+            public int compare (double a, double b) {
+                return (int)(b - a);
+            }
+        });
+    }
 }
+
