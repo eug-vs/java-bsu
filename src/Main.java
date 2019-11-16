@@ -55,9 +55,6 @@ public class Main {
                 System.out.println(token);
             }
         }
-        modified = modified.concat(Integer.toString(new Random().nextInt()));
-        System.out.println("Modified string: ");
-        System.out.println(modified);
 
         System.out.println("Hexadecimals: ");
         for (int i = 0; i < hexIndex; i++) {
@@ -75,5 +72,9 @@ public class Main {
                         "Number P was not found in the string." :
                         "Position of number P in the string: " + pIndex.toString()
         );
+
+        modified = modified.concat(Integer.toString(new Random().nextInt()));
+        System.out.println("Modified string: ");
+        System.out.println(modified);
     }
 }
