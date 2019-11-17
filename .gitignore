@@ -1,7 +1,7 @@
 # Built .jar packages
 *.jar
 
-# Compiled class file
+# Compiled class files
 *.class
 
 # IntelliJ IDEA
@@ -14,3 +14,7 @@ out/
 .idea/**/usage.statistics.xml
 .idea/**/dictionaries
 .idea/**/shelf
+
+# Input / output files
+*.txt
+
