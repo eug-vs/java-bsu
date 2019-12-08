@@ -1,5 +1,6 @@
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 
 public class Main {
@@ -20,6 +21,13 @@ public class Main {
 
         try {
             final Date date = parser.parse(input);
+
+            Calendar calendar = Calendar.getInstance();
+            calendar.setTime(date);
+
+            System.out.println("Day in year: " + calendar.get(Calendar.DAY_OF_YEAR));
+            System.out.println("Day in month: " + calendar.get(Calendar.DAY_OF_MONTH));
+            System.out.println("Day in week: " + calendar.get(Calendar.DAY_OF_WEEK));
             System.out.println(formatter.format(date));
         } catch (ParseException e) {
             System.out.println("Can not parse using " + defaultFormatString);
