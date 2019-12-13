@@ -8,14 +8,14 @@ public class Student {
     private String surname;
     private Date birthDate;
     private double performance;
-    private int[] finishedClasses;
+    private int[] finishedSubjectsId;
 
-    public Student(int id, String surname, Date birthDate, double performance, int[] finishedClasses) {
+    public Student(int id, String surname, Date birthDate, double performance, int[] finishedSubjectsId) {
         this.id = id;
         this.surname = surname;
         this.birthDate = birthDate;
         this.performance = performance;
-        this.finishedClasses = finishedClasses;
+        this.finishedSubjectsId = finishedSubjectsId;
     }
 
     @Override
