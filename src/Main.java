@@ -1,4 +1,5 @@
 import core.Student;
+import core.Teacher;
 
 import java.util.Date;
 
@@ -12,6 +13,11 @@ public class Main {
                 9.5,
                 new int[] {1, 2, 3}
         );
+        final Teacher testTeacher = new Teacher(
+                "Zenko",
+                1
+        );
         System.out.println(testStudent);
+        System.out.println(testTeacher);
     }
 }
