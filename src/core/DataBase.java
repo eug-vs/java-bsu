@@ -1,14 +1,15 @@
 package core;
 
 import java.util.ArrayList;
-import java.util.Map;
+import java.util.HashMap;
 
 public class DataBase {
     public ArrayList<Student> students;
-    public Map<Integer, Teacher> teachers;
+    public HashMap<Integer, Teacher> teachers;
 
     public DataBase() {
         this.students = new ArrayList<Student>();
+        this.teachers = new HashMap<Integer, Teacher>();
     }
 
     public void addStudent(Student student) {
