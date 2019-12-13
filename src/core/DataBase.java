@@ -3,7 +3,6 @@ package core;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.HashMap;
 
 
@@ -24,51 +23,33 @@ public class DataBase {
         this.teachers.put(teacher.subjectId, teacher);
     }
 
-    public void readStudentsFromFile(String filePath) {
+    private interface EntityProcessor {
+        void addEntityFromLine(String line);
+    }
+
+    private void readEntitiesFromFile(String filePath, EntityProcessor entityProcessor) {
         try (
-            final BufferedReader reader = new BufferedReader(new FileReader(filePath));
+            final BufferedReader reader = new BufferedReader(new FileReader(filePath))
         ) {
-            String buffer;
-            final String DELIMETERS = "[ _;!?]+";
-            while ((buffer = reader.readLine()) != null) {
-                final String[] tokens = buffer.split(DELIMETERS);
-                final String id = tokens[0];
-                final String surname = tokens[1];
-                final Student student = new Student(
-                        id,
-                        surname,
-                        new Date(),
-                        9.5,
-                        new int[] {1, 2, 3}
-                );
-                this.addStudent(student);
+            String line;
+            while ((line = reader.readLine()) != null) {
+                entityProcessor.addEntityFromLine(line);
             }
         } catch (Exception e) {
-            System.out.println("Exception occurred during reading from file!");
-            e.printStackTrace();
+            System.out.println("Exception occurred!");
         }
     }
 
+    public void readStudentsFromFile(String filePath) {
+        this.readEntitiesFromFile(filePath, (line -> {
+            this.addStudent(new Student(line));
+        }));
+    }
+
     public void readTeachersFromFile(String filePath) {
-        try (
-                final BufferedReader reader = new BufferedReader(new FileReader(filePath));
-        ) {
-            String buffer;
-            final String DELIMETERS = "[ _;!?]+";
-            while ((buffer = reader.readLine()) != null) {
-                final String[] tokens = buffer.split(DELIMETERS);
-                final String surname = tokens[0];
-                final int subjectId = Integer.parseInt(tokens[1]);
-                final Teacher teacher = new Teacher(
-                        surname,
-                        subjectId
-                );
-                this.addTeacher(teacher);
-            }
-        } catch (Exception e) {
-            System.out.println("Exception occurred during reading from file!");
-            e.printStackTrace();
-        }
+        this.readEntitiesFromFile(filePath, (line -> {
+            this.addTeacher(new Teacher(line));
+        }));
     }
 
     public String toString() {
