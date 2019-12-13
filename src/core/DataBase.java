@@ -1,7 +1,12 @@
 package core;
 
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
+
 
 public class DataBase {
     public ArrayList<Student> students;
@@ -20,29 +25,55 @@ public class DataBase {
         this.teachers.put(teacher.subjectId, teacher);
     }
 
+    public void readStudentsFromFile(String filePath) {
+        try (
+            final BufferedReader reader = new BufferedReader(new FileReader(filePath));
+        ) {
+            String buffer;
+            final String DELIMETERS = "[ _;!?]+";
+            while ((buffer = reader.readLine()) != null) {
+                final String[] tokens = buffer.split(DELIMETERS);
+                final String id = tokens[0];
+                final String surname = tokens[1];
+                final Student student = new Student(
+                        id,
+                        surname,
+                        new Date(),
+                        9.5,
+                        new int[] {1, 2, 3}
+                );
+                this.addStudent(student);
+            }
+        } catch (Exception e) {
+            System.out.println("Exception occurred during reading from file!");
+            e.printStackTrace();
+        }
+    }
+
+
     public String toString() {
-        StringBuilder stringBuilder = new StringBuilder();
+        StringBuilder str = new StringBuilder();
         if (this.students.size() > 0) {
-            stringBuilder.append("Database students:\n");
+            str.append("Database students:\n");
             for (Student student : this.students) {
-                stringBuilder.append('\t');
-                stringBuilder.append(student);
-                stringBuilder.append('\n');
+                str.append('\t');
+                str.append(student);
+                str.append('\n');
             }
         } else {
-            stringBuilder.append("Database student list is empty!\n");
+            str.append("Database student list is empty!\n");
         }
 
         if (this.teachers.size() > 0) {
-            stringBuilder.append("Database teachers:\n");
+            str.append("Database teachers:\n");
             for (Teacher teacher : this.teachers.values()) {
-                stringBuilder.append('\t');
-                stringBuilder.append(teacher);
-                stringBuilder.append('\n');
+                str.append('\t');
+                str.append(teacher);
+                str.append('\n');
             }
         } else {
-            stringBuilder.append("Database teacher list is empty!\n");
+            str.append("Database teacher list is empty!\n");
         }
-        return stringBuilder.toString();
+        return str.toString();
     }
 }

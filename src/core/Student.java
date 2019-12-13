@@ -4,13 +4,13 @@ import java.util.Date;
 
 
 public class Student {
-    private int id;
+    private String id;
     private String surname;
     private Date birthDate;
     private double performance;
     private int[] finishedSubjectsId;
 
-    public Student(int id, String surname, Date birthDate, double performance, int[] finishedSubjectsId) {
+    public Student(String id, String surname, Date birthDate, double performance, int[] finishedSubjectsId) {
         this.id = id;
         this.surname = surname;
         this.birthDate = birthDate;

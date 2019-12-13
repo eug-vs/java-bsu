@@ -2,25 +2,22 @@ import core.DataBase;
 import core.Student;
 import core.Teacher;
 
-import java.util.Date;
+import java.io.FileNotFoundException;
 
 
 public class Main {
-    public static void main(String[] args){
-        final Student testStudent = new Student(
-                114565,
-                "Sokolov",
-                new Date(),
-                9.5,
-                new int[] {1, 2, 3}
-        );
+    public static void main(String[] args) throws FileNotFoundException {
+        final String studentsPath = "Student1.txt";
+        final String teachersPath = "Teacher.txt";
+
         final Teacher testTeacher = new Teacher(
                 "Zenko",
                 1
         );
 
+
         final DataBase dataBase = new DataBase();
-        dataBase.addStudent(testStudent);
+        dataBase.readStudentsFromFile(studentsPath);
         dataBase.addTeacher(testTeacher);
         System.out.println(dataBase);
     }
