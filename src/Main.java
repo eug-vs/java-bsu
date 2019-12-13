@@ -1,3 +1,4 @@
+import core.DataBase;
 import core.Student;
 import core.Teacher;
 
@@ -17,7 +18,10 @@ public class Main {
                 "Zenko",
                 1
         );
-        System.out.println(testStudent);
-        System.out.println(testTeacher);
+
+        final DataBase dataBase = new DataBase();
+        dataBase.print();
+        dataBase.addStudent(testStudent);
+        dataBase.print();
     }
 }
