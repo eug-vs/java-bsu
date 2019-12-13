@@ -20,8 +20,8 @@ public class Main {
         );
 
         final DataBase dataBase = new DataBase();
-        dataBase.print();
         dataBase.addStudent(testStudent);
+        dataBase.addTeacher(testTeacher);
         dataBase.print();
     }
 }
