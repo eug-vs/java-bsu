@@ -1,7 +1,6 @@
 package core;
 
 import java.io.BufferedReader;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.Date;
@@ -50,6 +49,27 @@ public class DataBase {
         }
     }
 
+    public void readTeachersFromFile(String filePath) {
+        try (
+                final BufferedReader reader = new BufferedReader(new FileReader(filePath));
+        ) {
+            String buffer;
+            final String DELIMETERS = "[ _;!?]+";
+            while ((buffer = reader.readLine()) != null) {
+                final String[] tokens = buffer.split(DELIMETERS);
+                final String surname = tokens[0];
+                final int subjectId = Integer.parseInt(tokens[1]);
+                final Teacher teacher = new Teacher(
+                        surname,
+                        subjectId
+                );
+                this.addTeacher(teacher);
+            }
+        } catch (Exception e) {
+            System.out.println("Exception occurred during reading from file!");
+            e.printStackTrace();
+        }
+    }
 
     public String toString() {
         StringBuilder str = new StringBuilder();
