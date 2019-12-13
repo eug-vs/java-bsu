@@ -15,6 +15,7 @@ public class Student extends Entity {
         StringTokenizer tokenizer = new StringTokenizer(string, DELIMITERS);
         this.id = tokenizer.nextToken();
         this.surname = tokenizer.nextToken();
+        this.birthDate = parseDate(tokenizer.nextToken());
     }
 
     public String toString() {
