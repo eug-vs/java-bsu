@@ -20,25 +20,29 @@ public class DataBase {
         this.teachers.put(teacher.subjectId, teacher);
     }
 
-    public void print() {
+    public String toString() {
+        StringBuilder stringBuilder = new StringBuilder();
         if (this.students.size() > 0) {
-            System.out.println("Database students: ");
+            stringBuilder.append("Database students:\n");
             for (Student student : this.students) {
-                System.out.print('\t');
-                System.out.println(student);
+                stringBuilder.append('\t');
+                stringBuilder.append(student);
+                stringBuilder.append('\n');
             }
         } else {
-            System.out.println("Database student list is empty!");
+            stringBuilder.append("Database student list is empty!\n");
         }
 
         if (this.teachers.size() > 0) {
-            System.out.println("Database teachers: ");
+            stringBuilder.append("Database teachers:\n");
             for (Teacher teacher : this.teachers.values()) {
-                System.out.print('\t');
-                System.out.println(teacher);
+                stringBuilder.append('\t');
+                stringBuilder.append(teacher);
+                stringBuilder.append('\n');
             }
         } else {
-            System.out.println("Database teacher list is empty!");
+            stringBuilder.append("Database teacher list is empty!\n");
         }
+        return stringBuilder.toString();
     }
 }

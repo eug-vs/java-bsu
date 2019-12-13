@@ -22,6 +22,6 @@ public class Main {
         final DataBase dataBase = new DataBase();
         dataBase.addStudent(testStudent);
         dataBase.addTeacher(testTeacher);
-        dataBase.print();
+        System.out.println(dataBase);
     }
 }
