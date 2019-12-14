@@ -1,28 +1,12 @@
 package core;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 
 
-public class MotorShip {
+public class MotorShip extends Entity {
     public String name;
-    public String id;
     public Date releaseDate;
     public Date expirationDate;
-
-    private final static String DELIMITERS = "-|, ";
-    private final static String DATE_FORMAT = "dd.MM.yyyy";
-    private final static SimpleDateFormat DATE_PARSER = new SimpleDateFormat(DATE_FORMAT);
-
-    private static Date parseDate(String dateString) {
-        try {
-            return DATE_PARSER.parse(dateString);
-        } catch (ParseException e) {
-            System.out.println("Exception occurred! Unable to parse date according to format " + DATE_FORMAT);
-            return new Date();
-        }
-    }
 
     public MotorShip(String recordString) {
         final String[] tokens = recordString.split(DELIMITERS);
@@ -38,5 +22,13 @@ public class MotorShip {
 
     public String toString() {
         return this.name + " (MotorShip #" + this.id + ")";
+    }
+
+    public String getReleaseDate() {
+        return formatDate(this.releaseDate);
+    }
+
+    public String getExpirationDate() {
+        return formatDate(this.expirationDate);
     }
 }
