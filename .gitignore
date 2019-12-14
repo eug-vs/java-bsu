@@ -5,16 +5,9 @@
 *.class
 
 # IntelliJ IDEA
+.idea/
 out/
 *.iml
-
-# User-specific stuff
-.idea/**/workspace.xml
-.idea/**/tasks.xml
-.idea/**/vcs.xml
-.idea/**/usage.statistics.xml
-.idea/**/dictionaries
-.idea/**/shelf
 
 # Input / output files
 *.txt
