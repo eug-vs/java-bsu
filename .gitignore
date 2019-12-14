@@ -9,6 +9,5 @@
 out/
 *.iml
 
-# Input / output files
+# Input / output files in a root folder
 *.txt
-
