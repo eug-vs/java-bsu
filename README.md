@@ -3,17 +3,10 @@ A repository with the JAVA labs (BSU/FAMCS).
 
 ## Prerequisites
 - [Java Development Kit](https://www.oracle.com/java/technologies/jdk8-downloads.html)
-- [JetBrains IntelliJ IDEA](https://www.jetbrains.com/idea/)
 
 ## Structure
 - Every lab is located on its own branch. 
-- Base branch only includes `README.md`, `Makefile` and default `.gitignore` for **IntelliJ IDEA**.
-### Every lab branch includes:
-- `.idea/` - **IntelliJ IDEA** project settings
-- `src/` - Project *source code*
-- `README.md` - Lab description with the *main task* and, optionally, comments on the solution.
-- `Makefile` - Makefile to support `make` commands and work outside of IDE.
-- `.gitignore`
+- Base branch only includes `README.md`, `Makefile`,`.gitignore` and an initial `src/` folder.
 
 ## Getting started
 ### Cloning project
@@ -30,8 +23,6 @@ A repository with the JAVA labs (BSU/FAMCS).
 5. Build project (`Ctrl+F9`)
 6. Run project (`Shift+F10`)
 #### Shell
-To build, pack and run your project from a *shell* simply run command: 
-```shell
-make run
-```
+To build, pack and run your project from a *shell* simply run command `make`.
+
 Keep it mind that it requires **make** to be installed. More info on make: https://www.gnu.org/software/make/
