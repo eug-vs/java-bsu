@@ -1,21 +1,27 @@
-SOURCE=src
-BUILD=out/production/$(shell basename $(CURDIR))
-OUT=build
+# Directories
+SOURCE_DIR=src
+BUILD_DIR=build
+
+# Names
 MAINCLASS=Main
+JAR=build.jar
 
-pack: build
-	jar -cfe $(OUT).jar $(MAINCLASS) -C $(BUILD)/ .
+# Files
+SOURCE=$(SOURCE_DIR)/$(MAINCLASS).java
+BUILD=$(BUILD_DIR)/$(MAINCLASS).class
 
-build:
-	javac -d $(BUILD)/ -cp $(SOURCE)/ $(SOURCE)/$(MAINCLASS).java
+.PHONY: run clean
 
-run: pack
-	java -jar $(OUT).jar
+run: $(JAR)
+	java -jar $(JAR)
 
-clean_build:
-	rm -rf $(BUILD)
+$(JAR): $(BUILD)
+	jar -cfe $(JAR) $(MAINCLASS) -C $(BUILD_DIR)/ .
 
-clean_pack:
-	rm -f *.jar
+$(BUILD): $(SOURCE)
+	javac -d $(BUILD_DIR)/ -cp $(SOURCE_DIR)/ $(SOURCE)
 
-clean: clean_build clean_pack
+clean:
+	@rm -rf $(BUILD_DIR)
+	@rm -f *.jar
+	@echo Clean done.
